@@ -21,7 +21,6 @@
         font-size: 14px;
         font-weight: 700;
         line-height: 20px;
-        margin-bottom: 9px;
     }
 
     span{
@@ -35,8 +34,8 @@
 
     .comment {
         width: 449px;
-        border: 1px solid rgba(0, 0, 0, 0.19);
-        margin-bottom: 23px;
-        padding: 15px 18px 15px 18px;
+        border: 18px solid black;
+        border-image: url("../assets/com.png") 27 round stretch;
+        margin-bottom: 20px;
     }
 </style>

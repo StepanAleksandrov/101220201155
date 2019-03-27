@@ -7,7 +7,7 @@
         </div>
         <div class="title">
             <p>Подберу для вас самые лучшие предложения.
-                Мои услуги абсолютно бесплатны</p>
+                Мои услуги абсолютно бесплатные</p>
         </div>
     </div>
 </template>
@@ -20,7 +20,12 @@
 
 <style scoped>
 
-    h4{
+    .profile {
+        min-width: 440px;
+        max-width: 449px;
+    }
+
+    h4 {
         color: #808080;
         font-family: "Arial - Bold MT";
         font-size: 12px;
@@ -29,17 +34,16 @@
         margin-bottom: 9px;
     }
 
-    .user_photo{
+    .user_photo {
         position: absolute;
     }
 
-    .user_info{
+    .user_info {
         margin-left: 134px;
     }
 
-    .title{
-        width: 364px;
-        height: 54px;
+    .title {
+        max-width: 449px;
         border-radius: 1px;
         box-shadow: 0 0 0 1px rgba(60, 44, 0, 0.25);
         background-color: #fffbc8;
