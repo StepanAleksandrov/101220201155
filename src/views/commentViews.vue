@@ -34,8 +34,8 @@
 
     .comment {
         width: 449px;
-        border: 18px solid black;
-        border-image: url("../assets/com.png") 27 round stretch;
+        border: 18px solid #808080;
+        border-image: url("../assets/com.png") 25 round stretch;
         margin-bottom: 20px;
     }
 </style>
