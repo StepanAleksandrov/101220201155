@@ -1,28 +1,54 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <Profile/>
+        <Services/>
+        <Comments/>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import Comments from './components/Comments'
+    import Profile from './components/Profile'
+    import Services from './components/Services'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'app',
+        components: {
+            Comments,
+            Profile,
+            Services
+        }
+    }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    #app {
+        padding-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        display: -webkit-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+
+    h2 {
+        color: #333333;
+        font-family: Arial;
+        font-size: 16px;
+        font-weight: 700;
+        padding-top: 7px;
+        padding-right: 7px;
+    }
+
+    p {
+        color: #333333;
+        font-family: "Arial MT";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19px;
+        margin: 0px;
+    }
+
 </style>
