@@ -23,7 +23,7 @@
 
 <style>
     #app {
-        padding-top: 20px;
+        padding: 20px;
         display: flex;
         flex-wrap: wrap;
         display: -webkit-flex;
