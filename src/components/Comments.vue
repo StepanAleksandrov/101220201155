@@ -1,138 +1,142 @@
 <template>
-    <div class="column">
-        <div class="row">
-            <div class="row">
-                <h2>Последние отзывы</h2>
-                <p><a href="#">Все отзывы</a></p>
-            </div>
+  <div>
+    <div class="comments_info">
+      <div class="row">
+        <h2>Последние отзывы</h2>
+        <p><a href="#">Все отзывы</a></p>
+      </div>
 
-            <div class="row">
-                <div class=""><p><img src="../assets/like.png" alt="">131</p></div>
-                <div><img src="../assets/comments.png" alt="">14</div>
-            </div>
-        </div>
-        <div class="comments">
-            <commentViews v-for="comment in comments" :comment="comment"/>
-            <textarea type="text" class="send_comment" v-model="text_" value="text_"
-                      v-on:keyup.ctrl.enter="sendComment"></textarea>
-        </div>
-        <button class="submite" v-on:click="click">
-            <p>Написать консультанту</p>
-        </button>
+      <div class="row">
+        <div><img src="../assets/like.png" alt="" /> 131</div>
+        <div><img src="../assets/comments.png" alt="" />14</div>
+      </div>
     </div>
+    <div class="comments">
+      <commentViews
+        v-for="comment in comments"
+        :key="comment.id"
+        :comment="comment"
+      />
+      <textarea
+        type="text"
+        class="send_comment"
+        v-model="text_"
+        value="text_"
+        v-on:keyup.ctrl.enter="sendComment"
+      ></textarea>
+    </div>
+
+    <button class="submite" v-on:click="sendComment">
+      <p>Написать консультанту</p>
+    </button>
+  </div>
 </template>
 
 <script>
-    import commentViews from '../views/commentViews'
+import commentViews from "../views/commentViews";
+import data from "../data";
 
-    export default {
-        name: "Comments",
-        data() {
-            return {
-                text_: '',
-                months: ["январь", "февраль", "март", "апрель", "май", "июнь",
-                    "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"],
-                comments: [
-                    {
-                        id: 1,
-                        user_name: 'Самуил',
-                        data: '13 октября 2011',
-                        text: 'Привет, Верунь! ниче себе ты крутая. фотка ' +
-                        '' +
-                        'класс!!!!'
-                    },
-                    {
-                        id: 2,
-                        user_name: 'Лилия Семёновна',
-                        data: '14 октября 2011',
-                        text: 'Вероника, здравствуйте! Есть такой ' +
-                        'вопрос: Особый вид куниц жизненно стабилизирует кинетический момент, это и есть всемирно ' +
-                        'известный центр огранки алмазов и торговли бриллиантами?'
-                    },
-                    {
-                        id: 3,
-                        user_name: 'Лилия Семёновна',
-                        data: '14 октября 2011',
-                        text: 'Вероника, здравствуйте! Есть такой ' +
-                        'вопрос: Особый вид куниц жизненно стабилизирует кинетический момент?'
-                    }
-                ]
-            }
-        },
-        components: {
-            commentViews
-        },
-        methods: {
+export default {
+  name: "Comments",
+  data() {
+    return data;
+  },
+  components: {
+    commentViews,
+  },
+  methods: {
+    sendComment: function() {
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = this.months[today.getMonth()];
+      var yyyy = today.getFullYear();
 
-            click: function () {
-
-                var today = new Date();
-                var dd = today.getDate();
-                var mm = this.months[today.getMonth()];
-                var yyyy = today.getFullYear();
-
-                today = dd + ' ' + mm + ' ' + yyyy;
-                this.comments.push({id: Math.random(10), user_name: 'User_1', data: today, text: this.text_});
-                this.text_ = '';
-            },
-
-            sendComment: function () {
-
-                var today = new Date();
-                var dd = today.getDate();
-                var mm = this.months[today.getMonth()];
-                var yyyy = today.getFullYear();
-
-                today = dd + ' ' + mm + ' ' + yyyy;
-                this.comments.push({id: Math.random(10), user_name: 'User_1', data: today, text: this.text_});
-                this.text_ = '';
-            }
-        }
-    }
+      today = dd + " " + mm + " " + yyyy;
+      this.text_
+        ? this.comments.push({
+            id: Math.random(10),
+            user_name: "User_1",
+            data: today,
+            text: this.text_,
+          })
+        : (this.text_ = "");
+      this.text_ = "";
+    },
+  },
+};
 </script>
 
 <style scoped>
+img {
+  width: auto;
+  height: 14px;
+  padding-right: 4px;
+}
 
-    img {
-        padding-right: 5px;
-    }
+img:last-child {
+  padding-left: 16px;
+}
 
-    img:last-child {
-        padding-left: 21px;
-        padding-top: -10px;
-    }
+h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
-    h2 {
-        padding-top: 0px;
-    }
+p {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
 
-    .row {
-        display: flex;
-        margin-bottom: 10px;
-    }
+.comments {
+  margin-top: 10px;
+}
 
-    a {
-        margin-right: 105px;
-    }
+.comments_info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-    .send_comment {
-        width: 449px;
-        height: 65px;
-        margin-top: 30px;
-        padding: 15px;
-        border: 1px solid rgba(0, 0, 0, 0.19);
-        background-color: #ffffff;
-        display: flex;
-    }
+a {
+  margin-right: 97px;
+  margin-left: 9px;
+}
 
-    .submite {
-        width: 282px;
-        height: 43px;
-        margin-top: 34px;
-        border: none;
-        border-radius: 20px;
-        background-color: #fdd639;
-        margin-left: 84px;
+.send_comment {
+  width: 100%;
+  height: 65px;
+  resize: none;
+  margin-top: 10px;
+  padding: 15px;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+}
 
-    }
+.submite {
+  width: 282px;
+  height: 43px;
+  margin-top: 34px;
+  border: none;
+  border-radius: 20px;
+  background-color: #fdd639;
+  margin-left: 87px;
+}
+
+@media screen and (max-width: 630px) {
+  .comments {
+    width: 100%;
+  }
+  .send_comment {
+    width: 80%;
+  }
+
+  .comments_info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .submite {
+    margin-left: 40px;
+  }
+}
 </style>

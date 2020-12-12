@@ -1,5 +1,5 @@
 {
-  "name": "5919190325s",
+  "name": "101220201155",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "core-js": "^2.6.12",
     "vue": "^2.6.6",
     "vuetify": "^1.5.5"
   },

@@ -1,41 +1,36 @@
 <template>
+  <div>
     <div>
-        <div><h3>{{comment.user_name}} <span>{{comment.data}}</span></h3></div>
-
-        <div class="comment"><p>{{comment.text}}</p></div>
+      <h3>
+        {{ comment.user_name }} <span>{{ comment.data }}</span>
+      </h3>
     </div>
+
+    <div class="comment">
+      <p>{{ comment.text }}</p>
+    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "comment",
-        props: ['comment'],
-    }
+export default {
+  name: "comment",
+  props: ["comment"],
+};
 </script>
 
 <style scoped>
+.comment {
+  max-width: 450px;
+  border: 11px solid;
+  box-shadow: 0px 4px 10px rgba(128, 128, 128, 0.1);
+  border-image: url("../assets/com.svg") 11 stretch;
+  margin-bottom: 20px;
+}
 
-    h3 {
-        color: #333333;
-        font-family: "Arial - Bold MT";
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 20px;
-    }
-
-    span{
-        color: #808080;
-        font-family: "Arial - Bold MT";
-        font-size: 11px;
-        font-weight: 400;
-        line-height: 20px;
-        margin-left: 7px;
-    }
-
-    .comment {
-        width: 449px;
-        border: 18px solid #808080;
-        border-image: url("../assets/com.png") 25 round stretch;
-        margin-bottom: 20px;
-    }
+@media screen and (max-width: 630px) {
+  .comment {
+    width: 70%;
+  }
+}
 </style>
